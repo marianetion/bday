@@ -34,10 +34,6 @@ function toggleAudio() {
     toggleAudio();
   });
 
-  window.onbeforeunload = stopAudio;
-
-  window.onunload = stopAudio;
-
   function toggleAudio() {
     var audioElement = document.getElementById('player');
     var soundOn = document.getElementById('play');
@@ -50,6 +46,15 @@ function toggleAudio() {
       audioElement.pause();
       $(soundOn).hide();
       $(soundOff).show();
+    }
+
+    function pauseAudioOnTabHide () {
+      if (!document.hidden) {
+        audio.play();
+      }
+      else {
+        audio.pause();
+      }
     }
   }
 
