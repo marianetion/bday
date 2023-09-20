@@ -28,10 +28,15 @@ function toggleAudio() {
 
 
 
+
 // Add an event listener to trigger the toggleAudio function on page load
   window.addEventListener('DOMContentLoaded', function () {
     toggleAudio();
   });
+
+  window.addEventListener('beforeunload', function () {
+        audioElement.pause();
+      });
 
   function toggleAudio() {
     var audioElement = document.getElementById('player');
@@ -47,6 +52,9 @@ function toggleAudio() {
       $(soundOff).show();
     }
   }
+
+  
+
 
 </script>
 
